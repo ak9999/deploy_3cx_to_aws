@@ -34,3 +34,8 @@ output "origination_url" {
 output "pstn_url" {
   value = twilio_trunking_trunks_v1.trunk.domain_name
 }
+
+output "phone_system_url" {
+  description = "Public URL for the 3CX phone system."
+  value = "https://${aws_instance.phone_system.public_dns}"
+}
