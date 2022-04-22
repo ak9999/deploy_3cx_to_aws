@@ -23,7 +23,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "phone_system" {
-  ami           = "ami-029fca949994b359a" # 3CX Phone System AMI
+  ami           = "ami-09d578a94c1a695ab" # 3CX Phone System AMI
   instance_type = "t2.micro"
   root_block_device {
     delete_on_termination = true
@@ -31,7 +31,7 @@ resource "aws_instance" "phone_system" {
 }
 
 resource "twilio_trunking_trunks_v1" "trunk" {
-  friendly_name            = "TrialTrunk"
+  friendly_name            = var.trunk_friendly_name
   disaster_recovery_method = "GET"
   disaster_recovery_url    = "https://www.twilio.com/docs/sip-trunking/api/trunk-resource"
   cnam_lookup_enabled      = false
